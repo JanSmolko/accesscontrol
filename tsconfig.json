@@ -26,7 +26,8 @@
             "./node_modules"
         ],
         "types": [
-            "node"
+            "node",
+            "jest"
         ],
         "outDir": "./lib"
     },

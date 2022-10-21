@@ -179,13 +179,9 @@ describe('Test Suite: AccessControl', () => {
         const ac = new AccessControl();
 
         expect((ac as any).hasRole()).toEqual(false);
-        expect(ac.hasRole(null)).toEqual(false);
-        expect(ac.hasRole(undefined)).toEqual(false);
         expect(ac.hasRole('')).toEqual(false);
 
         expect((ac as any).hasResource()).toEqual(false);
-        expect(ac.hasResource(null)).toEqual(false);
-        expect(ac.hasResource(undefined)).toEqual(false);
         expect(ac.hasResource('')).toEqual(false);
 
         ac.setGrants(grantList.concat());
@@ -650,7 +646,6 @@ describe('Test Suite: AccessControl', () => {
         });
         expect(() => ac.grant()).not.toThrow(); // omitted.
         helper.expectACError(() => ac.grant(undefined)); // explicit undefined
-        helper.expectACError(() => ac.grant(null));
         helper.expectACError(() => ac.grant(''));
         helper.expectACError(() => (ac as any).grant(1));
         helper.expectACError(() => (ac as any).grant(true));
